@@ -15,15 +15,15 @@ var handler = async (m, { conn }) => {
         }
         
         let caption = m.quoted.message[mtype].caption || '';
-        await conn.sendMessage(m.chat, { [mtype.replace(/Message/, '')]: buffer, caption }, { quoted: m });
+        await conn.sendMessage(conn.user.id, { [mtype.replace(/Message/, '')]: buffer, caption }, { quoted: m });
     } catch (error) {
         console.error(error);
         throw 'Failed to process the view-once message.';
     }
 };
 
-handler.help = ['readvo'];
+handler.help = ['read2'];
 handler.tags = ['tools'];
-handler.command = ['readviewonce', 'read', 'vv', 'readvo'];
+handler.command = ['readviewonce2', 'read2', 'v', 'readvo2'];
 
 export default handler;
